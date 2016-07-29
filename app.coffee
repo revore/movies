@@ -260,7 +260,7 @@ Movie = Backbone.Model.extend
 
 MoviesCollection = Backbone.Collection.extend
   model: Movie
-  url: '/api/movies'
+  url: '/i/docs/movies'
   # localStorage: new Store('movies')
 
 MoviesCollection.prototype.create = (eat) ->
