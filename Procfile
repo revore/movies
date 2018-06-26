@@ -1,3 +1,3 @@
-coffee: coffee -w -c app.coffee
 sass: compass watch
-dev: env NODE_ENV=development PORT=6060 nodemon server.coffee
+react: npx babel --plugins transform-react-jsx -w app.js.jsx -o app.js
+server: revore
