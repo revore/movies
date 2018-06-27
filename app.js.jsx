@@ -1,6 +1,6 @@
 var logDebug = false
 
-names = [
+var movies = [
   "The Shawshank Redemption (1994)",
   "The Godfather (1972)",
   "The Godfather: Part II (1974)",
@@ -253,16 +253,34 @@ names = [
   "Manhattan (1979)",
 ]
 
-class App extends React.Component {
+class Movie extends React.Component {
   render() {
     return (
-      <div className="container">
-        hello
+      <div className="movie">
+        {this.props.number}
+        {this.props.title}
+        }
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+class Movies extends React.Component {
+  render() {
+    var listItems = movies.map((title) =>
+      (
+        <Movie key={movies.indexOf(title)} number={movies.indexOf(title) + 1} title={title} />
+      )
+    );
+
+    return (
+      <div className="container">
+        {listItems}
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Movies />, document.getElementById('movies'))
 
 console.log("hello")
