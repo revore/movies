@@ -4,6 +4,7 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-watch": "^2.0.7",
-    "npx": "^10.2.0"
+    "npx": "^10.2.0",
+    "revore": "1.0.14"
   }
 }
