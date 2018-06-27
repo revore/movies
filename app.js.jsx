@@ -259,7 +259,6 @@ class Movie extends React.Component {
       <div className="movie">
         {this.props.number}
         {this.props.title}
-        }
       </div>
     );
   }
