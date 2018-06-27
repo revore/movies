@@ -256,10 +256,9 @@ var movies = [
 class Movie extends React.Component {
   render() {
     return (
-      <div className="movie">
-        {this.props.number}
+      <li className="movie">
         {this.props.title}
-      </div>
+      </li>
     );
   }
 }
@@ -268,18 +267,24 @@ class Movies extends React.Component {
   render() {
     var listItems = movies.map((title) =>
       (
-        <Movie key={movies.indexOf(title)} number={movies.indexOf(title) + 1} title={title} />
+        <Movie key={movies.indexOf(title)} title={title} />
       )
     );
 
     return (
-      <div className="container">
-        {listItems}
+      <div>
+        <h1>
+          <strong>250</strong>
+          IMDB Top Movies of all Time.
+        </h1>
+        <ol id="movies">
+          {listItems}
+        </ol>
       </div>
     );
   }
 }
 
-ReactDOM.render(<Movies />, document.getElementById('movies'))
+ReactDOM.render(<Movies />, document.getElementById('app'))
 
 console.log("hello")

@@ -5,9 +5,8 @@ var movies = ["The Shawshank Redemption (1994)", "The Godfather (1972)", "The Go
 class Movie extends React.Component {
   render() {
     return React.createElement(
-      "div",
+      "li",
       { className: "movie" },
-      this.props.number,
       this.props.title
     );
   }
@@ -15,16 +14,30 @@ class Movie extends React.Component {
 
 class Movies extends React.Component {
   render() {
-    var listItems = movies.map(title => React.createElement(Movie, { key: movies.indexOf(title), number: movies.indexOf(title) + 1, title: title }));
+    var listItems = movies.map(title => React.createElement(Movie, { key: movies.indexOf(title), title: title }));
 
     return React.createElement(
       "div",
-      { className: "container" },
-      listItems
+      null,
+      React.createElement(
+        "h1",
+        null,
+        React.createElement(
+          "strong",
+          null,
+          "250"
+        ),
+        "IMDB Top Movies of all Time."
+      ),
+      React.createElement(
+        "ol",
+        { id: "movies" },
+        listItems
+      )
     );
   }
 }
 
-ReactDOM.render(React.createElement(Movies, null), document.getElementById('movies'));
+ReactDOM.render(React.createElement(Movies, null), document.getElementById('app'));
 
 console.log("hello");
