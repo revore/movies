@@ -71,6 +71,3 @@
 #     @$('#eat-list').html('')
 #     Movies.each(@addOne, this)
 
-# new MoviesView()
-
-# $("title").text("IMDB Top 250")

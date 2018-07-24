@@ -1,5 +1,3 @@
-var logDebug = false
-
 var moviesOrder = [
   "The Shawshank Redemption (1994)",
   "The Godfather (1972)",
@@ -254,10 +252,41 @@ var moviesOrder = [
 ]
 
 class Movie extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      name: this.props.name,
+      done: this.props.done,
+    }
+  }
+
+  changeDone() {
+    var id = this.props.id
+    var s = this.state
+    this.setState({
+      // name: data.name,
+      done: !s.done,
+    })
+    superagent
+      .put(`/i/docs/movies/${id}.json`)
+      .set('Accept', 'application/json')
+      .send({ name: s.name, done: !s.done })
+      .end((err, res) => {
+        console.log(res)
+      });
+  }
+
   render() {
+    if (this.state.done == true) {
+      var className = ["movies done"]
+    }
+    else {
+      var className = ["movies"]
+    }
+
     return (
-      <li className="movie">
-        {this.props.name}
+      <li className={className} onClick={this.changeDone.bind(this)}>
+        {this.state.name}
       </li>
     );
   }
@@ -276,7 +305,6 @@ class Movies extends React.Component {
       .get('/i/docs/movies.json')
       .set('Accept', 'application/json')
       .end((err, res) => {
-
         var moviesSet = []
         for (let movie of res.body) {
           var index = moviesOrder.indexOf(movie.name)
@@ -290,10 +318,9 @@ class Movies extends React.Component {
   }
 
   render() {
-    console.log("!!!!!!!!!! - render")
-    var listItems = this.state.movies.map((movie) =>
+    var movieItems = this.state.movies.map((movie) =>
       (
-        <Movie key={movie.id} name={movie.name} />
+        <Movie key={movie.id} id={movie.id} name={movie.name} done={movie.done} />
       )
     );
 
@@ -304,7 +331,7 @@ class Movies extends React.Component {
           IMDB Top Movies of all Time.
         </h1>
         <ol id="movies">
-          {listItems}
+          {movieItems}
         </ol>
       </div>
     );
@@ -313,4 +340,4 @@ class Movies extends React.Component {
 
 ReactDOM.render(<Movies />, document.getElementById('app'))
 
-document.querySelectorAll('title')[0].textContent = "IMDB"
+document.querySelectorAll('title')[0].textContent = "IMDB Top 250"
