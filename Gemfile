@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem "foreman"
-gem "compass"
+gem 'foreman'
+gem 'compass'

@@ -1,5 +1,5 @@
-# babel
-npm install --save-dev babel-cli babel-preset-react
+# babel, revore
+npm install
 
 # compasee, sass
 bundle install
