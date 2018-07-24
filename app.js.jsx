@@ -276,15 +276,20 @@ class Movie extends React.Component {
 
   render() {
     if (this.state.done == true) {
-      var className = ["movies done"]
+      var className = ["movie-name done"]
     }
     else {
-      var className = ["movies"]
+      var className = ["movie-name"]
     }
 
     return (
-      <li className={className} onClick={this.changeDone.bind(this)}>
-        {this.state.name}
+      <li className="movie" onClick={this.changeDone.bind(this)}>
+        <div className="movie-number">
+          {this.props.number}
+        </div>
+        <div className="movie-name" className={className}>
+          {this.state.name}
+        </div>
       </li>
     );
   }
@@ -318,19 +323,21 @@ class Movies extends React.Component {
   render() {
     var movieItems = this.state.movies.map((movie) =>
       (
-        <Movie key={movie.id} id={movie.id} name={movie.name} done={movie.done} />
+        <Movie number={moviesOrder.indexOf(movie.name)+1} key={movie.id} id={movie.id} name={movie.name} done={movie.done} />
       )
     );
 
     return (
-      <div>
-        <h1>
-          <strong>250</strong>
-          IMDB Top Movies of all Time.
-        </h1>
-        <ol id="movies">
-          {movieItems}
-        </ol>
+      <div className="row">
+        <div id="movies-list" className="col-sm-6 offset-sm-3">
+          <h1>
+            <strong>250</strong>
+            IMDB Top Movies of all Time.
+          </h1>
+          <ul id="movies" class="list-unstyled">
+            {movieItems}
+          </ul>
+        </div>
       </div>
     );
   }

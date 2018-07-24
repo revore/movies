@@ -21,15 +21,24 @@ class Movie extends React.Component {
 
   render() {
     if (this.state.done == true) {
-      var className = ["movies done"];
+      var className = ["movie-name done"];
     } else {
-      var className = ["movies"];
+      var className = ["movie-name"];
     }
 
     return React.createElement(
       "li",
-      { className: className, onClick: this.changeDone.bind(this) },
-      this.state.name
+      { className: "movie", onClick: this.changeDone.bind(this) },
+      React.createElement(
+        "div",
+        { className: "movie-number" },
+        this.props.number
+      ),
+      React.createElement(
+        "div",
+        { className: "movie-name", className: className },
+        this.state.name
+      )
     );
   }
 }
@@ -57,25 +66,29 @@ class Movies extends React.Component {
   }
 
   render() {
-    var movieItems = this.state.movies.map(movie => React.createElement(Movie, { key: movie.id, id: movie.id, name: movie.name, done: movie.done }));
+    var movieItems = this.state.movies.map(movie => React.createElement(Movie, { number: moviesOrder.indexOf(movie.name) + 1, key: movie.id, id: movie.id, name: movie.name, done: movie.done }));
 
     return React.createElement(
       "div",
-      null,
+      { className: "row" },
       React.createElement(
-        "h1",
-        null,
+        "div",
+        { id: "movies-list", className: "col-sm-6 offset-sm-3" },
         React.createElement(
-          "strong",
+          "h1",
           null,
-          "250"
+          React.createElement(
+            "strong",
+            null,
+            "250"
+          ),
+          "IMDB Top Movies of all Time."
         ),
-        "IMDB Top Movies of all Time."
-      ),
-      React.createElement(
-        "ol",
-        { id: "movies" },
-        movieItems
+        React.createElement(
+          "ul",
+          { id: "movies", "class": "list-unstyled" },
+          movieItems
+        )
       )
     );
   }

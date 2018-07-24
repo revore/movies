@@ -6,51 +6,21 @@ body {
 }
 
 /* line 6, style.sass */
-#app {
+#movies-list {
   background-color: white;
-  width: 600px;
   margin: 0 auto;
-  margin-top: 4em;
-  margin-bottom: 10em;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
   padding: 2em;
 }
-@media (min-width: 1200px) {
+@media screen and (min-device-width: 1024px) {
   /* line 6, style.sass */
-  #app {
-    width: 600px;
-  }
-}
-@media (min-width: 976px) and (max-width: 1199px) {
-  /* line 6, style.sass */
-  #app {
-    width: 600px;
-  }
-}
-@media (min-width: 768px) and (max-width: 975px) {
-  /* line 6, style.sass */
-  #app {
-    width: 600px;
-  }
-}
-@media (min-width: 480px) and (max-width: 767px) {
-  /* line 6, style.sass */
-  #app {
-    width: 480px;
-  }
-}
-@media (max-width: 479px) {
-  /* line 6, style.sass */
-  #app {
-    width: 280px;
-    margin: 0;
-    margin-left: 0;
-    padding: 20px;
-    box-shadow: none;
+  #movies-list {
+    margin-top: 4em;
+    margin-bottom: 10em;
   }
 }
 
-/* line 34, style.sass */
+/* line 16, style.sass */
 h1 {
   margin-top: 0;
   margin-bottom: 1em;
@@ -59,7 +29,7 @@ h1 {
   line-height: 56px;
   text-align: center;
 }
-/* line 41, style.sass */
+/* line 23, style.sass */
 h1 strong {
   font-size: 2em;
   font-weight: bold;
@@ -70,12 +40,12 @@ h1 strong {
   text-align: center;
 }
 
-/* line 50, style.sass */
+/* line 32, style.sass */
 ol {
   margin: 0;
 }
 
-/* line 53, style.sass */
+/* line 35, style.sass */
 li {
   margin-bottom: 0.8em;
   padding-bottom: 0.8em;
@@ -85,7 +55,26 @@ li {
   cursor: pointer;
 }
 
-/* line 61, style.sass */
+/* line 43, style.sass */
+.movie {
+  line-height: 32px;
+}
+
+/* line 46, style.sass */
+.movie-number {
+  color: #eee;
+  padding-right: 10px;
+  width: 10%;
+  float: left;
+}
+
+/* line 52, style.sass */
+.movie-name {
+  width: 85%;
+  margin-left: 11%;
+}
+
+/* line 56, style.sass */
 .done {
   color: #aaa;
   text-decoration: line-through;
