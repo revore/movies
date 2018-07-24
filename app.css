@@ -1,11 +1,11 @@
-/* line 6, app.sass */
+/* line 1, app.sass */
 body {
   padding: 0;
   margin: 0;
   background-color: #C7C6C3;
 }
 
-/* line 11, app.sass */
+/* line 6, app.sass */
 #app {
   background-color: white;
   width: 600px;
@@ -16,31 +16,31 @@ body {
   padding: 2em;
 }
 @media (min-width: 1200px) {
-  /* line 11, app.sass */
+  /* line 6, app.sass */
   #app {
     width: 600px;
   }
 }
 @media (min-width: 976px) and (max-width: 1199px) {
-  /* line 11, app.sass */
+  /* line 6, app.sass */
   #app {
     width: 600px;
   }
 }
 @media (min-width: 768px) and (max-width: 975px) {
-  /* line 11, app.sass */
+  /* line 6, app.sass */
   #app {
     width: 600px;
   }
 }
 @media (min-width: 480px) and (max-width: 767px) {
-  /* line 11, app.sass */
+  /* line 6, app.sass */
   #app {
     width: 480px;
   }
 }
 @media (max-width: 479px) {
-  /* line 11, app.sass */
+  /* line 6, app.sass */
   #app {
     width: 280px;
     margin: 0;
@@ -50,7 +50,7 @@ body {
   }
 }
 
-/* line 39, app.sass */
+/* line 34, app.sass */
 h1 {
   margin-top: 0;
   margin-bottom: 1em;
@@ -59,7 +59,7 @@ h1 {
   line-height: 56px;
   text-align: center;
 }
-/* line 46, app.sass */
+/* line 41, app.sass */
 h1 strong {
   font-size: 2em;
   font-weight: bold;
@@ -70,12 +70,12 @@ h1 strong {
   text-align: center;
 }
 
-/* line 55, app.sass */
+/* line 50, app.sass */
 ol {
   margin: 0;
 }
 
-/* line 58, app.sass */
+/* line 53, app.sass */
 li {
   margin-bottom: 0.8em;
   padding-bottom: 0.8em;
@@ -85,7 +85,7 @@ li {
   cursor: pointer;
 }
 
-/* line 66, app.sass */
+/* line 61, app.sass */
 .done {
   color: #aaa;
   text-decoration: line-through;
