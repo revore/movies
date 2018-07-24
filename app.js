@@ -13,7 +13,24 @@ class Movie extends React.Component {
 }
 
 class Movies extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      movies: []
+    };
+  }
+
+  componentDidMount() {
+    superagent.get('/i/docs/movies.json').set('Accept', 'application/json').end((err, res) => {
+      console.log(res.body);
+      this.setState({
+        movies: res.body
+      });
+    });
+  }
+
   render() {
+    console.log("!!!!!!!!!! - render");
     var listItems = movies.map(title => React.createElement(Movie, { key: movies.indexOf(title), title: title }));
 
     return React.createElement(
@@ -39,5 +56,3 @@ class Movies extends React.Component {
 }
 
 ReactDOM.render(React.createElement(Movies, null), document.getElementById('app'));
-
-console.log("hello");

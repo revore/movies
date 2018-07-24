@@ -264,7 +264,27 @@ class Movie extends React.Component {
 }
 
 class Movies extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      movies: [],
+    }
+  }
+
+  componentDidMount() {
+    superagent
+      .get('/i/docs/movies.json')
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        console.log(res.body)
+        this.setState({
+          movies: res.body,
+        })
+      });
+  }
+
   render() {
+    console.log("!!!!!!!!!! - render")
     var listItems = movies.map((title) =>
       (
         <Movie key={movies.indexOf(title)} title={title} />
@@ -285,17 +305,4 @@ class Movies extends React.Component {
   }
 }
 
-// ReactDOM.render(<Movies />, document.getElementById('app'))
-
-var request = superagent
-
-request
-  .get('/i/movies')
-  .end((err, res) => {
-    console("done")
-    console(err.inspect)
-    console(res.inspect)
-  });
-
-
-console.log("hello")
+ReactDOM.render(<Movies />, document.getElementById('app'))
