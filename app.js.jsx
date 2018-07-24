@@ -257,7 +257,7 @@ class Movie extends React.Component {
   render() {
     return (
       <li className="movie">
-        {this.props.title}
+        {this.props.name}
       </li>
     );
   }
@@ -276,7 +276,7 @@ class Movies extends React.Component {
       .get('/i/docs/movies.json')
       .set('Accept', 'application/json')
       .end((err, res) => {
-        console.log(res.body)
+        console.log(res.body);
         this.setState({
           movies: res.body,
         })
@@ -285,9 +285,9 @@ class Movies extends React.Component {
 
   render() {
     console.log("!!!!!!!!!! - render")
-    var listItems = movies.map((title) =>
+    var listItems = this.state.movies.map((movie) =>
       (
-        <Movie key={movies.indexOf(title)} title={title} />
+        <Movie key={movie.id} name={movie.name} />
       )
     );
 

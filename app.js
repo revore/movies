@@ -7,7 +7,7 @@ class Movie extends React.Component {
     return React.createElement(
       "li",
       { className: "movie" },
-      this.props.title
+      this.props.name
     );
   }
 }
@@ -31,7 +31,7 @@ class Movies extends React.Component {
 
   render() {
     console.log("!!!!!!!!!! - render");
-    var listItems = movies.map(title => React.createElement(Movie, { key: movies.indexOf(title), title: title }));
+    var listItems = this.state.movies.map(movie => React.createElement(Movie, { key: movie.id, name: movie.name }));
 
     return React.createElement(
       "div",
