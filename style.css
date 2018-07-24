@@ -75,8 +75,13 @@ li {
 }
 
 /* line 56, style.sass */
+#owner-info {
+  margin-bottom: 30px;
+}
+
+/* line 59, style.sass */
 .done {
-  color: #aaa;
+  color: #ccc;
   text-decoration: line-through;
   font-weight: normal;
   font-style: italic;

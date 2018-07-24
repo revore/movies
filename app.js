@@ -43,6 +43,32 @@ class Movie extends React.Component {
   }
 }
 
+class Owner extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  resetAll() {
+    console.log("resetAll");
+  }
+
+  render() {
+    return React.createElement(
+      "div",
+      { className: "row" },
+      React.createElement(
+        "div",
+        { id: "owner-info", className: "col-sm-12" },
+        React.createElement(
+          "a",
+          { href: "#", className: "btn btn-outline-primary", onClick: this.resetAll },
+          "Reset"
+        )
+      )
+    );
+  }
+}
+
 class Movies extends React.Component {
   constructor() {
     super();
@@ -56,7 +82,9 @@ class Movies extends React.Component {
       var moviesSet = [];
       for (let movie of res.body) {
         var index = moviesOrder.indexOf(movie.name);
-        moviesSet[index] = movie;
+        if (index != -1) {
+          moviesSet[index] = movie;
+        }
       }
 
       this.setState({
@@ -67,6 +95,11 @@ class Movies extends React.Component {
 
   render() {
     var movieItems = this.state.movies.map(movie => React.createElement(Movie, { number: moviesOrder.indexOf(movie.name) + 1, key: movie.id, id: movie.id, name: movie.name, done: movie.done }));
+
+    var owner = "";
+    if (this.props.owner == true) {
+      var owner = React.createElement(Owner, null);
+    }
 
     return React.createElement(
       "div",
@@ -84,9 +117,10 @@ class Movies extends React.Component {
           ),
           "IMDB Top Movies of all Time."
         ),
+        owner,
         React.createElement(
           "ul",
-          { id: "movies", "class": "list-unstyled" },
+          { id: "movies", className: "list-unstyled" },
           movieItems
         )
       )
@@ -94,6 +128,9 @@ class Movies extends React.Component {
   }
 }
 
-ReactDOM.render(React.createElement(Movies, null), document.getElementById('app'));
+superagent.get('/i/user.json').set('Accept', 'application/json').end((err, res) => {
+  user = res.body;
+  ReactDOM.render(React.createElement(Movies, { owner: user.owner }), document.getElementById('app'));
+});
 
 document.querySelectorAll('title')[0].textContent = "IMDB Top 250";

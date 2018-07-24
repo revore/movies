@@ -295,9 +295,30 @@ class Movie extends React.Component {
   }
 }
 
+
+class Owner extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  resetAll() {
+    console.log("resetAll");
+  }
+
+  render() {
+    return (
+      <div className="row">
+        <div id="owner-info" className="col-sm-12">
+          <a href="#" className="btn btn-outline-primary" onClick={this.resetAll}>Reset</a>
+        </div>
+      </div>
+    );
+  }
+}
+
 class Movies extends React.Component {
   constructor(){
-    super()
+    super();
     this.state={
       movies: [],
     }
@@ -311,7 +332,9 @@ class Movies extends React.Component {
         var moviesSet = []
         for (let movie of res.body) {
           var index = moviesOrder.indexOf(movie.name)
-          moviesSet[index] = movie
+          if (index != -1) {
+            moviesSet[index] = movie
+          }
         }
 
         this.setState({
@@ -327,6 +350,13 @@ class Movies extends React.Component {
       )
     );
 
+    var owner = ""
+    if (this.props.owner == true) {
+      var owner = (
+        <Owner />
+      )
+    }
+
     return (
       <div className="row">
         <div id="movies-list" className="col-sm-6 offset-sm-3">
@@ -334,7 +364,8 @@ class Movies extends React.Component {
             <strong>250</strong>
             IMDB Top Movies of all Time.
           </h1>
-          <ul id="movies" class="list-unstyled">
+          {owner}
+          <ul id="movies" className="list-unstyled">
             {movieItems}
           </ul>
         </div>
@@ -343,6 +374,12 @@ class Movies extends React.Component {
   }
 }
 
-ReactDOM.render(<Movies />, document.getElementById('app'))
+superagent
+  .get('/i/user.json')
+  .set('Accept', 'application/json')
+  .end((err, res) => {
+    user = res.body
+    ReactDOM.render(<Movies owner={user.owner} />, document.getElementById('app'))
+  });
 
 document.querySelectorAll('title')[0].textContent = "IMDB Top 250"
