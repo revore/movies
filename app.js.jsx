@@ -1,6 +1,6 @@
 var logDebug = false
 
-var movies = [
+var moviesOrder = [
   "The Shawshank Redemption (1994)",
   "The Godfather (1972)",
   "The Godfather: Part II (1974)",
@@ -276,9 +276,15 @@ class Movies extends React.Component {
       .get('/i/docs/movies.json')
       .set('Accept', 'application/json')
       .end((err, res) => {
-        console.log(res.body);
+
+        var moviesSet = []
+        for (let movie of res.body) {
+          var index = moviesOrder.indexOf(movie.name)
+          moviesSet[index] = movie
+        }
+
         this.setState({
-          movies: res.body,
+          movies: moviesSet,
         })
       });
   }
@@ -306,3 +312,5 @@ class Movies extends React.Component {
 }
 
 ReactDOM.render(<Movies />, document.getElementById('app'))
+
+document.querySelectorAll('title')[0].textContent = "IMDB"
