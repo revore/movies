@@ -12,12 +12,10 @@ class Movie extends React.Component {
   changeDone() {
     var id = this.props.id;
     var s = this.state;
-    this.setState({
-      // name: data.name,
-      done: !s.done
-    });
     superagent.put(`/i/docs/movies/${id}.json`).set('Accept', 'application/json').send({ name: s.name, done: !s.done }).end((err, res) => {
-      console.log(res);
+      this.setState({
+        done: !s.done
+      });
     });
   }
 
