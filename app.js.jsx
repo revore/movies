@@ -285,6 +285,17 @@ class Movies extends React.Component {
   }
 }
 
-ReactDOM.render(<Movies />, document.getElementById('app'))
+// ReactDOM.render(<Movies />, document.getElementById('app'))
+
+var request = superagent
+
+request
+  .get('/i/movies')
+  .end((err, res) => {
+    console("done")
+    console(err.inspect)
+    console(res.inspect)
+  });
+
 
 console.log("hello")
