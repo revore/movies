@@ -319,7 +319,7 @@ class Owner extends React.Component {
     return (
       <div className="row">
         <div id="owner-info" className="col-sm-12">
-          <a href="#" className="btn btn-outline-primary" onClick={this.resetAll}>Reset</a>
+          <a href="#" className="button-style" onClick={this.resetAll}>Reset All</a>
         </div>
       </div>
     );

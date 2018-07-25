@@ -14,6 +14,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({template: './src/index.html'})
   ],
+  watchOptions: {
+    ignored: /node_modules/,
+    aggregateTimeout: 300,
+    poll: 1000
+  },
   module: {
     rules: [
       {
