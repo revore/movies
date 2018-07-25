@@ -9,7 +9,7 @@ module.exports = {
     app: './src/app.js',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname),
     filename: 'app.js'
   },
   mode: 'production',
