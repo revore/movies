@@ -349,7 +349,11 @@ class Movies extends React.Component {
       .get('/i/docs/movies.json')
       .set('Accept', 'application/json')
       .end((err, res) => {
-        var moviesSet = []
+        if (res.success == false) {
+          alert("API Failed");
+        }
+
+        var moviesSet = [];
         for (let movie of res.body) {
           var index = moviesOrder.indexOf(movie.name)
           if (index != -1) {
