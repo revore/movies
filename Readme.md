@@ -1,5 +1,5 @@
 # babel, revore
-npm install
+yarn install
 
 # compile
 webpack
