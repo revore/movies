@@ -12,9 +12,29 @@ module.exports = {
     path: path.resolve(__dirname),
     filename: 'app.js'
   },
-  mode: 'production',
+  mode: 'development',
   plugins: [
     new HtmlWebpackPlugin({template: './src/index.html'})
-  ]
+  ],
+  module: {
+    rules: [
+      // { test: /\.css$/,
+      //   use: [
+      //     { loader: "style-loader" },
+      //     { loader: "css-loader" }
+      //   ]
+      // },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   use: "babel-loader"
+      // },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: "babel-loader"
+      }
+    ]
+  }
 };
 
