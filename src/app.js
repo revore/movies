@@ -1,4 +1,3 @@
-import superagent from 'superagent';
 import Movies from './movies.jsx'
 import React from 'react';
 import ReactDOM from 'react-dom';

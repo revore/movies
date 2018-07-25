@@ -1,6 +1,5 @@
 import superagent from 'superagent';
 import React from 'react';
-// import ReactDOM from 'react-dom';
 
 var moviesOrder = [
   "The Shawshank Redemption (1994)",
