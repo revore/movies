@@ -1,0 +1,88 @@
+/* line 1, style.sass */
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #C7C6C3;
+}
+
+/* line 6, style.sass */
+#movies-list {
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
+  padding: 2em;
+}
+@media screen and (min-device-width: 1024px) {
+  /* line 6, style.sass */
+  #movies-list {
+    margin-top: 4em;
+    margin-bottom: 10em;
+  }
+}
+
+/* line 16, style.sass */
+h1 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 56px;
+  text-align: center;
+}
+/* line 23, style.sass */
+h1 strong {
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: -7px;
+  color: #E4BA23;
+  display: block;
+  margin-bottom: 0.2em;
+  text-align: center;
+}
+
+/* line 32, style.sass */
+ol {
+  margin: 0;
+}
+
+/* line 35, style.sass */
+li {
+  margin-bottom: 0.8em;
+  padding-bottom: 0.8em;
+  border-bottom: 1px solid #eee;
+  font-size: 24px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+/* line 43, style.sass */
+.movie {
+  line-height: 32px;
+}
+
+/* line 46, style.sass */
+.movie-number {
+  color: #eee;
+  padding-right: 10px;
+  width: 10%;
+  float: left;
+}
+
+/* line 52, style.sass */
+.movie-name {
+  width: 85%;
+  margin-left: 11%;
+}
+
+/* line 56, style.sass */
+#owner-info {
+  margin-bottom: 30px;
+}
+
+/* line 59, style.sass */
+.done {
+  color: #ccc;
+  text-decoration: line-through;
+  font-weight: normal;
+  font-style: italic;
+}
