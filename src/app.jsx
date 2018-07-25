@@ -2,6 +2,8 @@ import superagent from 'superagent';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+require('./style.sass');
+
 var moviesOrder = [
   "The Shawshank Redemption (1994)",
   "The Godfather (1972)",
