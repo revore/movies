@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname),
-    filename: 'app.js'
+    filename: 'output.js'
   },
   mode: 'development',
   plugins: [
