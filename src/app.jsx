@@ -1,5 +1,6 @@
 import superagent from 'superagent';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 var moviesOrder = [
   "The Shawshank Redemption (1994)",
@@ -319,7 +320,7 @@ class Owner extends React.Component {
   }
 }
 
-export default class Movies extends React.Component {
+class Movies extends React.Component {
   constructor(){
     super();
     this.state={
@@ -385,3 +386,10 @@ export default class Movies extends React.Component {
     );
   }
 }
+
+ReactDOM.render(
+  React.createElement(Movies, {}, null),
+  document.getElementById('app')
+);
+
+document.querySelectorAll('title')[0].textContent = "IMDB Top 250";
