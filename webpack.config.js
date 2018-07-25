@@ -1,17 +1,17 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
-const pkg = require('./package.json');
+// const pkg = require('./package.json');
 
 module.exports = {
   entry: {
-    vendor: Object.keys(pkg.dependencies),
+    // vendor: Object.keys(pkg.dependencies),
     app: './src/app.js',
   },
-  // output: {
-  //   path: path.resolve(__dirname, 'dist'),
-  //   filename: 'bundle.js'
-  // },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'app.js'
+  },
   mode: 'production',
   plugins: [
     new HtmlWebpackPlugin({template: './src/index.html'})
