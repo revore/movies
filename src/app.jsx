@@ -267,6 +267,10 @@ class Movie extends React.Component {
   }
 
   changeDone() {
+    if (this.props.owner == false) {
+      return
+    }
+
     var id = this.props.id
     var s = this.state
     superagent
@@ -327,6 +331,7 @@ class Movies extends React.Component {
     super();
     this.state={
       movies: [],
+      owner: false,
     }
   }
 
@@ -361,20 +366,27 @@ class Movies extends React.Component {
   render() {
     var movieItems = this.state.movies.map((movie) =>
       (
-        <Movie number={moviesOrder.indexOf(movie.name)+1} key={movie.id} id={movie.id} name={movie.name} done={movie.done} />
+        <Movie number={moviesOrder.indexOf(movie.name)+1} key={movie.id} id={movie.id} name={movie.name} done={movie.done} owner={this.state.owner} />
       )
     );
 
     var owner = ""
-    if (this.props.owner == true) {
+    if (this.state.owner == true) {
       var owner = (
         <Owner />
       )
     }
 
+    if (this.state.owner == true) {
+      var className = ["col-sm-6 offset-sm-3 owner"]
+    }
+    else {
+      var className = ["col-sm-6 offset-sm-3"]
+    }
+
     return (
       <div className="row">
-        <div id="movies-list" className="col-sm-6 offset-sm-3">
+        <div id="movies-list" className={className}>
           <h1>
             <strong>250</strong>
             IMDB Top Movies of all Time.
